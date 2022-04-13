@@ -1,8 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import firebase from 'firebase'
 import AddFishForm from './AddFishForm'
 import EditFishForm from './EditFishForm'
-import PropTypes from 'prop-types'
 import Login from './Login'
+import { firebaseApp } from '../base'
 
 class Inventory extends React.Component {
     static propTypes = {
@@ -10,12 +12,19 @@ class Inventory extends React.Component {
         updateFish: PropTypes.func,
         deleteFish: PropTypes.func,
         loadSampleFishes: PropTypes.func,
-    };
-    authenticate = () => {
-      alert('Ya');
+    }
+    authHandler = async (authData) => {
+      // 1. look up the current store in the firebase database
+      // 2. Claim it if there is no owner
+      // 3. setState invo
+        console.log(authData)
+    }
+    authenticate = (provider) => {
+        const authProvider = new firebase.auth[`${provider}AuthProvider`]()
+        firebaseApp.auth().signInWithPopup(authProvider).then(this.authHandler)
     }
     render() {
-        return <Login authenticate={this.authenticate}/>;
+        return <Login authenticate={this.authenticate} />
         return (
             <div className="inventory">
                 <h2>Inventory</h2>

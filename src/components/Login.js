@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Login = () => (
+const Login = (props) => (
     <nav className="login">
         <h2>Invetory Login</h2>
         <p>Sing in to manage your store's inventory</p>
@@ -12,13 +12,13 @@ const Login = () => (
             className="facebook"
             onClick={() => props.authenticate('Facebook')}
         >
-            Login with facebook
+            Login with Facebook
         </button>
         <button
             className="twitter"
             onClick={() => props.authenticate('Twitter')}
         >
-            Login with twitter
+            Login with Twitter
         </button>
     </nav>
 )
