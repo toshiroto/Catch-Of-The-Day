@@ -50,14 +50,14 @@ class Inventory extends React.Component {
         firebaseApp.auth().signInWithPopup(authProvider).then(this.authHandler)
     }
 
-    logoutt = async () => {
+    logout = async () => {
         console.log('Logging out!')
         await firebase.auth().signOut()
         this.setState({ uid: null })
     }
 
     render() {
-        const logout = <button onClick={this.logOut}>Log Out!</button>
+        const logout = <button onClick={this.logout}>Log Out!</button>
         // 1. Check if thet are logged in
         if (this.state.uid) {
             return <Login authenticate={this.authenticate} />
