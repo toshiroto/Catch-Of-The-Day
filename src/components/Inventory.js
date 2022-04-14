@@ -12,6 +12,7 @@ class Inventory extends React.Component {
         updateFish: PropTypes.func,
         deleteFish: PropTypes.func,
         loadSampleFishes: PropTypes.func,
+        addFish: PropTypes.func,
     }
 
     state = {
@@ -39,7 +40,7 @@ class Inventory extends React.Component {
         }
         // 3. setState of inventory component to reflect the current user
         this.setState({
-            userId: authData.user.uid,
+            uid: authData.user.uid,
             owner: store.owner || authData.user.uid,
         })
         console.log(authData)
@@ -59,7 +60,7 @@ class Inventory extends React.Component {
     render() {
         const logout = <button onClick={this.logout}>Log Out!</button>
         // 1. Check if thet are logged in
-        if (this.state.uid) {
+        if (!this.state.uid) {
             return <Login authenticate={this.authenticate} />
         }
         // 2. check if the uid === store owner
