@@ -40,7 +40,7 @@ class App extends React.Component {
     }
 
     componentWillunmount() {
-        base.removeBiding(this.ref)
+        base.removeBinding(this.ref)
     }
 
     addFish = (fish) => {
