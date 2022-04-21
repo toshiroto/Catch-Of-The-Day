@@ -17,7 +17,7 @@ const Header = (props) => (
     </header>
 )
 
-Header.proptypes = {
+Header.propTypes = {
     tagline: PropTypes.string.isRequired,
 }
 
